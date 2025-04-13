@@ -136,14 +136,14 @@ export function WaterRippleEffect() {
       ctx.font = `${magnificentFontSize}px 'Talesha', serif`;
       
       // Create gradient for "Magnificent"
-      const createGradient = (time: number) => {
+      const createGradient = () => {
         const gradient = ctx.createLinearGradient(
           width/2 - 300, height/2 + fontSize, 
           width/2 + 300, height/2 + fontSize
         );
         
         // Use specific brand colors with animated positions
-        const pos = (Math.sin(time * 0.001) + 1) / 2; // Oscillates between 0 and 1
+        // const pos = (Math.sin(time * 0.001) + 1) / 2; // Oscillates between 0 and 1
         gradient.addColorStop(0, '#873A3B');
         gradient.addColorStop(0.5, '#BF495F');
         
@@ -151,12 +151,12 @@ export function WaterRippleEffect() {
       };
       
       // Initial gradient (will be updated in animation loop)
-      ctx.fillStyle = createGradient(0);
+      ctx.fillStyle = createGradient();
       ctx.fillText('Magnificent', width/2, height/2 + fontSize);
       
       // Store the gradient creation function for animation
       // This will be used in the animation loop elsewhere
-      window.updateMagnificentGradient = (time: number) => {
+      window.updateMagnificentGradient = () => {
         ctx.clearRect(0, 0, width, height);
         
         // Redraw CORALIS
@@ -178,7 +178,7 @@ export function WaterRippleEffect() {
         
         // Update and redraw "Magnificent" with animated gradient
         ctx.font = `italic ${magnificentFontSize}px 'Talesha', serif`;
-        ctx.fillStyle = createGradient(time);
+        ctx.fillStyle = createGradient();
         ctx.fillText('Magnificent', width/2, height/2 + fontSize);
         
         // Update texture
