@@ -1,0 +1,14 @@
+This is a repository for Coralis an ecommerce platform
+
+ARCHITECTURE AND CODE INSTRUCTIONS:
+1. The entire codebase should be in Typescript
+2. The store data comes from Shopfiy
+3. All data fetching must happen on server side using server actions
+4. All data should be strictly typed, if there isn't a type available, you must create one
+   by referecing Shopify data strucutres
+
+INSTRUCTIONS FOR UI DESIGN:
+1. The theme of the website is premium but approchable
+2. All components should be friendly with subtle animations wherever possible
+3. Glassmorphism and flat design is our design language
+
