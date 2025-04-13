@@ -11,7 +11,7 @@ export default function Home() {
       <Particles />
       
       {/* CTA Button */}
-      <div className="absolute inset-x-0 bottom-[32%] flex justify-center z-90">
+      <div className="absolute inset-x-0 bottom-8 flex justify-center z-90">
         <Button
           variant="default"
           size='lg'
