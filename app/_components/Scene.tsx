@@ -76,7 +76,7 @@ export function WaterRippleEffect() {
       // Load background image
       const textureLoader = new THREE.TextureLoader();
       backgroundTexture = textureLoader.load(
-        '/water3.png',
+        '/water3.jpg',
         (texture) => {
           console.log("Background texture loaded");
           texture.minFilter = THREE.LinearFilter;
