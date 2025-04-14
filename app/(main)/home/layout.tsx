@@ -10,7 +10,7 @@ export default function HomeLayout({
 }) {
   return (
     <>
-      <MinimalNavbar />
+      {/* <MinimalNavbar /> */}
       <main>
         {children}
       </main>

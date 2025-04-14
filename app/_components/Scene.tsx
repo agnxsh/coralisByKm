@@ -261,6 +261,10 @@ export function WaterRippleEffect() {
         mouse.x = e.clientX * window.devicePixelRatio;
         mouse.y = (window.innerHeight - e.clientY) * window.devicePixelRatio;
       });
+      renderer.domElement.addEventListener('touchmove', (e) => {
+        mouse.x = e.touches[0].clientX * window.devicePixelRatio;
+        mouse.y = (window.innerHeight - e.touches[0].clientY) * window.devicePixelRatio;
+      });
 
       renderer.domElement.addEventListener('mouseleave', () => {
         mouse.set(0,0);
