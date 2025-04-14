@@ -3,15 +3,12 @@ import { AudioPlayer } from "@/app/_components/AudioPlayer";
 import { Particles } from "@/app/_components/Particles";
 import { WaterRippleEffect } from "@/app/_components/Scene";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [show, setShow] = useState(false);
-  const router = useRouter();
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShow(true);

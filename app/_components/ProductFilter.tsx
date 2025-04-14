@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'motion/react';
+import { useState } from 'react';
 
 // Filter categories with options
 const filterOptions = {

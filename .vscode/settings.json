@@ -1,0 +1,54 @@
+{
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.unstable": true,
+    "deno.enablePaths": ["./packages/supabase/functions"],
+    "deno.importMap": "./packages/supabase/functions/import_map.json",
+    "cSpell.words": ["lgsoft", "Periskope", "Periskope’s", "signup", "supabase"],
+    "tailwindCSS.classAttributes": [
+      "class",
+      "className",
+      "\\b[_a-zA-Z+]*ClassName"
+    ],
+    "tailwindCSS.experimental.classRegex": [
+      ["classes \\=([^;]*);", "'([^']*)'"],
+      ["classes \\=([^;]*);", "\"([^\"]*)\""],
+      ["classes \\=([^;]*);", "\\`([^\\`]*)\\`"]
+    ],
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
+    "vscode-postgres.defaultConnection": "localhost",
+    "vscode-postgres.defaultDatabase": "postgres",
+    "sqltools.connections": [
+      {
+        "previewLimit": 50,
+        "server": "localhost",
+        "port": 54322,
+        "driver": "PostgreSQL",
+        "name": "localhost",
+        "database": "postgres",
+        "username": "postgres",
+        "password": "postgres"
+      }
+    ],
+    "prettier.bracketSameLine": false,
+    "prettier.configPath": ".prettierrc.json",
+    "prettier.embeddedLanguageFormatting": "off",
+    "prettier.endOfLine": "auto",
+    "prettier.arrowParens": "avoid",
+    "editor.defaultFormatter": "bradymholt.pgformatter",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[github-actions-workflow]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+  }
+  

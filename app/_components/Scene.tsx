@@ -2,10 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { renderFragmentShader } from './shaders';
-import { renderVertexShader } from './shaders';
-import { simulationFragmentShader } from './shaders';
-import { simulationVertexShader } from './shaders';
+import { renderFragmentShader, renderVertexShader, simulationFragmentShader, simulationVertexShader } from './shaders';
 
 // Add font-face declaration
 const fontFaceStyle = `

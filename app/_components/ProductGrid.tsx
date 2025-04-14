@@ -1,7 +1,7 @@
 'use client'
 import { Product } from '@/app/_utils/fetchProducts'
-import Image from 'next/image'
 import { motion } from 'motion/react'
+import Image from 'next/image'
 
 interface ProductGridProps {
   products: Product[]

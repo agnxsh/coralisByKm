@@ -1,16 +1,12 @@
-import { notFound } from 'next/navigation';
+
+import { fetchProducts } from '@/app/_utils/fetchProducts';
 import Image from 'next/image';
 import Link from 'next/link';
-import { fetchProducts, Product } from '@/app/_utils/fetchProducts';
+import { notFound } from 'next/navigation';
 
-interface ProductDetailPageProps {
-  params: {
-    handle: string;
-  };
-}
 
-export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const { handle } = params;
+export default async function ProductDetailPage({ params }: {params: any}) {
+  const { handle } = await params;
   const products = await fetchProducts();
   const product = products.find(p => p.handle === handle);
 
@@ -214,4 +210,4 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
       </div>
     </main>
   );
-} 
+}

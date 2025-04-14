@@ -1,6 +1,6 @@
+import { AnimatePresence } from 'motion/react'
 import React from 'react'
 import { Navbar } from '../_components/Navbar'
-import { AnimatePresence } from 'motion/react'
 
 type Props = {
     children: React.ReactNode

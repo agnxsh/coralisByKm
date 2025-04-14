@@ -1,10 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { Product } from '@/app/_utils/fetchProducts';
+import { motion } from 'motion/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'motion/react';
-import { Product } from '@/app/_utils/fetchProducts';
+import { useState } from 'react';
 
 interface ProductCardProps {
   product: Product;

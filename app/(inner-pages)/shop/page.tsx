@@ -1,11 +1,11 @@
-import { fetchProducts } from '@/app/_utils/fetchProducts';
 import ProductCard from '@/app/_components/ProductCard';
+import { fetchProducts } from '@/app/_utils/fetchProducts';
 
 export default async function ShopPage() {
   const products = await fetchProducts();
 
   // For display purposes, let's create featured and bestsellers sections
-  const featuredProducts = products.slice(0, 3);
+  // const featuredProducts = products.slice(0, 3);
   const bestsellers = products.slice(0, 5);
 
   return (
@@ -56,7 +56,7 @@ export default async function ShopPage() {
 
           {/* What's New? */}
           <div className="bg-[#e8eddf] p-6 flex flex-col">
-            <h3 className="text-xl font-medium text-gray-900 mb-1">What's New?</h3>
+            <h3 className="text-xl font-medium text-gray-900 mb-1">What&apos;s New?</h3>
             <p className="text-gray-600 mb-4">Get the glow</p>
             <div className="flex-grow relative h-[220px]">
               {/* Product image would go here */}

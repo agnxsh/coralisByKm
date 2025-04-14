@@ -1,7 +1,7 @@
 'use client'
 import { AnimatePresence, motion } from "motion/react";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function AboutPage() {
   const [show, setShow] = useState(false)
@@ -86,7 +86,7 @@ export default function AboutPage() {
               >
                 <h2 className="text-3xl font-playfair text-sky-blue-900">Our Vision</h2>
                 <p className="text-sky-blue-800/80 leading-relaxed">
-                  At Corialis, we don't just develop properties – we craft sanctuaries where the gentle whisper of ocean waves meets unparalleled luxury. Our vision is to redefine coastal living by creating spaces that harmoniously blend with their natural surroundings while offering the pinnacle of comfort and sophistication.
+                  At Corialis, we don&apos;t just develop properties – we craft sanctuaries where the gentle whisper of ocean waves meets unparalleled luxury. Our vision is to redefine coastal living by creating spaces that harmoniously blend with their natural surroundings while offering the pinnacle of comfort and sophistication.
                 </p>
               </motion.div>
 
@@ -159,7 +159,7 @@ export default function AboutPage() {
             >
               <h2 className="text-3xl md:text-4xl font-playfair text-sky-blue-900 mb-8">Our Legacy</h2>
               <p className="text-sky-blue-800/80 leading-relaxed mb-12">
-                For over two decades, Corialis has been pioneering luxury coastal living. Our portfolio spans the world's most prestigious shorelines, from the sun-kissed beaches of the Mediterranean to the pristine coasts of the Pacific. Each property is a testament to our unwavering commitment to excellence and our deep understanding of what makes a house a home.
+                For over two decades, Corialis has been pioneering luxury coastal living. Our portfolio spans the world&apos;s most prestigious shorelines, from the sun-kissed beaches of the Mediterranean to the pristine coasts of the Pacific. Each property is a testament to our unwavering commitment to excellence and our deep understanding of what makes a house a home.
               </p>
               <div className="relative h-[300px] md:h-[500px] rounded-3xl overflow-hidden">
                 <Image

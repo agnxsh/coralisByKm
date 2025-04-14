@@ -1,8 +1,6 @@
 
+import { Montserrat, Playfair_Display } from 'next/font/google';
 import './globals.css';
-import { Playfair_Display, Montserrat } from 'next/font/google';
-import { Navbar } from './_components/Navbar';
-import { AudioPlayer } from './_components/AudioPlayer';
 
 const playfair = Playfair_Display({ 
   subsets: ['latin'],

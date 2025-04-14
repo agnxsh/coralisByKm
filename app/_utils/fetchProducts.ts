@@ -1,6 +1,5 @@
 'use server'
 const API_URL = process.env.NEXT_PUBLIC_API_URL!
-console.log("API_URL", API_URL)
 
 const gql = String.raw
 
@@ -91,7 +90,6 @@ export const fetchProducts = async (): Promise<Product[]> => {
     }
 
     const data = await response.json()
-    console.log("data", data)
 
     if (data.errors) {
       throw new Error(`GraphQL Error: ${data.errors[0].message}`)

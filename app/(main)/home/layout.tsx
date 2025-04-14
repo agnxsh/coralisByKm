@@ -1,6 +1,5 @@
 'use client';
 
-import MinimalNavbar from "../../_components/MinimalNavbar";
 
 
 export default function HomeLayout({
