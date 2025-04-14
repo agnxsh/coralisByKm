@@ -10,5 +10,10 @@ ARCHITECTURE AND CODE INSTRUCTIONS:
 INSTRUCTIONS FOR UI DESIGN:
 1. The theme of the website is premium but approchable
 2. All components should be friendly with subtle animations wherever possible
-3. Glassmorphism and flat design is our design language
-
+3. Flat design is our design language
+4. We will use Shadcn components for all our UI design components and modify the styling as required to match our theme
+5. Draw inspiration from https://unseen.co/
+6. Also for further design inspirations on sections refer to the images in public/inspirations folder
+7. Do not create random SVG shapes that float around the screen. 
+8. Absolute positioning inside product, payment or shopping pages is not appreciated
+9. Only use motion/react for animation

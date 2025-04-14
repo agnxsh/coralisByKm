@@ -1,5 +1,7 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
+import { Music, Pause } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 export function AudioPlayer() {
@@ -27,44 +29,17 @@ export function AudioPlayer() {
         preload="auto"
         className="hidden"
       />
-      <button 
+      <Button 
         onClick={toggleAudio} 
-        className="fixed bottom-6 right-6 z-50 bg-black/10 backdrop-blur-sm hover:bg-black/20 text-white/90 rounded-full p-3 transition-all duration-300"
+        className="absolute top-6 left-6 z-50 bg-black/10 backdrop-blur-sm hover:bg-black/20 text-white/90 rounded-full p-3 transition-all duration-300"
         aria-label={isPlaying ? "Pause background music" : "Play background music"}
       >
         {isPlaying ? (
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <rect x="6" y="4" width="4" height="16" />
-            <rect x="14" y="4" width="4" height="16" />
-          </svg>
+          <Pause className="w-6 h-6" />
         ) : (
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="M9 18V5l12-2v13" />
-            <circle cx="6" cy="18" r="3" />
-            <circle cx="21" cy="16" r="3" />
-          </svg>
+          <Music className="w-6 h-6" />
         )}
-      </button>
+      </Button>
     </>
   );
 } 

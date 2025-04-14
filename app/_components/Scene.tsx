@@ -130,6 +130,10 @@ export function WaterRippleEffect() {
       ctx.font = `400 ${fontSize}px 'Talesha', serif`;
       ctx.fillStyle = 'rgba(0, 0, 0, 0.95)';  // Reset to original color for the tagline
       ctx.fillText('Explore the', width/2, height/2);
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.07)';
+      ctx.shadowOffsetX = 20;
+      ctx.shadowOffsetY = 20;
       
       // Draw "Magnificent" with animated gradient
       const magnificentFontSize = Math.round(fontSize * 1.1);
@@ -145,7 +149,7 @@ export function WaterRippleEffect() {
         // Use specific brand colors with animated positions
         // const pos = (Math.sin(time * 0.001) + 1) / 2; // Oscillates between 0 and 1
         gradient.addColorStop(0, '#873A3B');
-        gradient.addColorStop(0.5, '#BF495F');
+        gradient.addColorStop(0.5, '#EE4D6B');
         
         return gradient;
       };

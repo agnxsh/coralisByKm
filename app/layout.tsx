@@ -1,3 +1,4 @@
+
 import './globals.css';
 import { Playfair_Display, Montserrat } from 'next/font/google';
 import { Navbar } from './_components/Navbar';
@@ -30,10 +31,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${playfair.variable} ${montserrat.variable} font-sans`}>
-        <Navbar />
+      <body className={`${playfair.variable} ${montserrat.variable} font-sans bg-background`}>
         {children}
-        <AudioPlayer />
       </body>
     </html>
   );

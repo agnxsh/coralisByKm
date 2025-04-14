@@ -12,7 +12,7 @@ export function Particles() {
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 20;
+    camera.position.z = 10;
 
     const renderer = new THREE.WebGLRenderer({ 
       antialias: true, 
@@ -23,7 +23,7 @@ export function Particles() {
     containerRef.current.appendChild(renderer.domElement);
 
     // Create particles
-    const particlesCount = 100; // Small number for subtlety
+    const particlesCount = 120; // Small number for subtlety
     const positions = new Float32Array(particlesCount * 3);
     const sizes = new Float32Array(particlesCount);
     const alphas = new Float32Array(particlesCount);
@@ -35,7 +35,7 @@ export function Particles() {
       positions[i * 3 + 2] = (Math.random() - 0.5) * 10; // z
       
       // Varying particle sizes - increased range
-      sizes[i] = Math.random() * 0.3 + 0.15; // Increased from 0.15 + 0.05
+      sizes[i] = Math.random() * 0.8 + 0.3; // Increased from 0.15 + 0.05
       // Smaller alpha for bigger particles to create blur effect
       alphas[i] = 1.0 - (sizes[i] - 0.15) / 0.3 * 0.7; // Adjusted range mapping
     }
@@ -48,7 +48,7 @@ export function Particles() {
     
     // Create radial gradient
     const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    gradient.addColorStop(0, 'rgba(245, 190, 173, 1)');
+    gradient.addColorStop(0, 'rgba(245, 190, 173, 0.8)');
     gradient.addColorStop(1, 'rgba(245, 190, 173, 0)');
     
     ctx.fillStyle = gradient;
@@ -162,7 +162,7 @@ export function Particles() {
         width: '100%', 
         height: '100%', 
         zIndex: 5,
-        pointerEvents: 'none' // Allow clicking through to elements behind
+        pointerEvents: 'none'
       }}
     />
   );

@@ -84,7 +84,6 @@
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
   font-family: var(--font-montserrat);
 }
 
@@ -119,6 +118,40 @@ canvas {
 
 .button-secondary {
   @apply inline-flex items-center justify-center rounded-full bg-secondary text-secondary-foreground px-6 py-3 font-medium shadow-lg hover:bg-secondary/90 transition-all;
+}
+
+/* Animation keyframes for floating elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(10px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes float-delayed {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(15px) translateX(-10px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 10s ease-in-out infinite;
 }
 
 :root {

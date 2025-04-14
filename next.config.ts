@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['cdn.shopify.com'],
   },
+  redirects: async () => [
+    {
+      source: '/',
+      destination: '/home',
+      permanent: true,
+    }, 
+  ],
 };
 
 export default nextConfig;

@@ -71,8 +71,8 @@ export interface Product {
 
 export const fetchProducts = async (): Promise<Product[]> => {
   try {
-    if (!process.env.NEXT_PUBLIC_API_URL || !process.env.NEXT_PUBLIC_ACCESS_KEY) {
-      throw new Error('Missing required environment variables: NEXT_PUBLIC_API_URL or NEXT_PUBLIC_ACCESS_KEY')
+    if (!process.env.NEXT_PUBLIC_API_URL || !process.env.NEXT_PUBLIC_ACCESS_TOKEN) {
+      throw new Error('Missing required environment variables: NEXT_PUBLIC_API_URL or NEXT_PUBLIC_ACCESS_TOKEN')
     }
 
     const response = await fetch(API_URL, {

@@ -17,6 +17,11 @@ varying vec2 vUv;
 
 const float delta = 1.4;
 
+// Random function for generating ripple positions
+float random(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+}
+
 void main() {
     vec2 uv = vUv;
     if (frame == 0) {
@@ -49,11 +54,26 @@ void main() {
     pVel *= 1.0 - 0.01 * delta;
     pressure *= 0.999;
 
+    // Mouse interaction
     vec2 mouseUv = mouse / resolution;
     if (mouse.x > 0.0) {
         float dist = distance(uv, mouseUv);
         if (dist <= 0.02) {
             pressure += 2.0 * (1.0 - dist / 0.02);
+        }
+    }
+
+    // Random ripples
+    float timeInterval = mod(time, 3.0); // Create ripple every 3 seconds
+    if (timeInterval < 0.1) { // Small window to create ripple
+        vec2 rippleCenter = vec2(
+            0.2 + 0.6 * random(vec2(time, 0.0)), // Random x between 0.2 and 0.8
+            0.2 + 0.6 * random(vec2(0.0, time))  // Random y between 0.2 and 0.8
+        );
+        float rippleDist = distance(uv, rippleCenter);
+        float rippleStrength = 0.8; // Softer ripple than mouse interaction
+        if (rippleDist <= 0.03) {
+            pressure += rippleStrength * (1.0 - rippleDist / 0.03) * (1.0 - timeInterval / 0.1);
         }
     }
 
@@ -87,12 +107,13 @@ void main() {
     float waveY = cos(uv.x * 8.0 + time) * 0.002;
     vec2 waveDistortion = vec2(waveX, waveY);
     
-    // Sample the background texture with wave distortion
-    vec4 bgColor = texture2D(backgroundTexture, uv + waveDistortion);
     
     // Get distortion data from simulation (mouse ripples)
     vec4 data = texture2D(textureA, uv);
     vec2 rippleDistortion = 0.08 * data.zw;
+    
+    // Sample the background texture with wave distortion
+    vec4 bgColor = texture2D(backgroundTexture, uv + waveDistortion + rippleDistortion * 0.5);
     
     // Sample the text with combined distortion
     vec4 textColor = texture2D(textureB, uv + rippleDistortion);
