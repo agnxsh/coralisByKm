@@ -97,6 +97,8 @@ uniform sampler2D textureA;
 uniform sampler2D textureB;
 uniform sampler2D backgroundTexture;
 uniform float time;
+uniform float aspectRatio;
+uniform float screenRatio;
 varying vec2 vUv;
 
 void main() {
@@ -107,13 +109,37 @@ void main() {
     float waveY = cos(uv.x * 8.0 + time) * 0.002;
     vec2 waveDistortion = vec2(waveX, waveY);
     
-    
     // Get distortion data from simulation (mouse ripples)
     vec4 data = texture2D(textureA, uv);
     vec2 rippleDistortion = 0.08 * data.zw;
     
-    // Sample the background texture with wave distortion
-    vec4 bgColor = texture2D(backgroundTexture, uv + waveDistortion + rippleDistortion * 0.5);
+    // Simple object-cover implementation
+    // For the background image to cover the entire container while maintaining aspect ratio
+    vec2 bgUv = uv;
+    
+    // Add ripple and wave effects
+    bgUv += waveDistortion + rippleDistortion * 0.5;
+    
+    // Calculate scaling to match true CSS object-cover behavior
+    // Based on image inspection, our water3.jpg has aspect ratio ~1.5 (landscape)
+    float imageAspect = 1.5; 
+    
+    // Add a small zoom factor for safety (ensures no edges are visible)
+    float safetyScale = 1.1;
+    
+    // Properly implement object-cover
+    if (aspectRatio > imageAspect) {
+        // Screen is wider than image - scale based on width and ensure full height coverage
+        float scale = (aspectRatio / imageAspect) * safetyScale;
+        bgUv.y = (bgUv.y - 0.5) / scale + 0.5;
+    } else {
+        // Screen is taller than image - scale based on height and ensure full width coverage
+        float scale = (imageAspect / aspectRatio) * safetyScale;
+        bgUv.x = (bgUv.x - 0.5) / scale + 0.5;
+    }
+    
+    // Sample the background texture (clamping happens automatically with ClampToEdgeWrapping)
+    vec4 bgColor = texture2D(backgroundTexture, bgUv);
     
     // Sample the text with combined distortion
     vec4 textColor = texture2D(textureB, uv + rippleDistortion);

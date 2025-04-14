@@ -76,8 +76,14 @@ export function WaterRippleEffect() {
         '/water3.jpg',
         (texture) => {
           console.log("Background texture loaded");
+          // Use linear filtering for smoother rendering
           texture.minFilter = THREE.LinearFilter;
           texture.magFilter = THREE.LinearFilter;
+          // Use repeat wrapping to handle edge cases with distortion
+          texture.wrapS = THREE.ClampToEdgeWrapping;
+          texture.wrapT = THREE.ClampToEdgeWrapping;
+          // Ensure texture is updated
+          texture.needsUpdate = true;
         },
         undefined,
         (error) => console.error("Error loading background texture:", error)
@@ -92,9 +98,13 @@ export function WaterRippleEffect() {
       // Clear with transparent color
       ctx.clearRect(0, 0, width, height);
 
-      // Draw the tagline
-      const fontSize = Math.round(80 * window.devicePixelRatio);
-      const titleFontSize = Math.round(20 * window.devicePixelRatio);
+      // Determine if we're on mobile for responsive text sizing
+      const isMobile = window.innerWidth < 768;
+      const responsiveScale = isMobile ? 0.7 : 1.0; // Reduce text size on mobile
+
+      // Draw the tagline with responsive font sizes
+      const fontSize = Math.round(80 * window.devicePixelRatio * responsiveScale);
+      const titleFontSize = Math.round(20 * window.devicePixelRatio * responsiveScale);
       
       // Draw CORALIS
       ctx.font = `${titleFontSize}px 'Monsterrat', sans-serif`;
@@ -212,7 +222,9 @@ export function WaterRippleEffect() {
             textureA: { value: null },
             textureB: { value: textTexture },
             backgroundTexture: { value: backgroundTexture },
-            time: { value: 0.0 }
+            time: { value: 0.0 },
+            aspectRatio: { value: window.innerWidth / window.innerHeight },
+            screenRatio: { value: width / height }
         },
         vertexShader: renderVertexShader,
         fragmentShader: renderFragmentShader,
@@ -235,25 +247,80 @@ export function WaterRippleEffect() {
         rtA.setSize(newWidth, newHeight);
         rtB.setSize(newWidth, newHeight);
         material.uniforms.resolution.value.set(newWidth, newHeight);
+        
+        // Update aspect ratio in render material
+        renderMaterial.uniforms.aspectRatio.value = window.innerWidth / window.innerHeight;
+        renderMaterial.uniforms.screenRatio.value = newWidth / newHeight;
 
-        // Redraw text canvas
+        // Determine if we're on mobile for responsive text sizing
+        const isMobile = window.innerWidth < 768;
+        
+        // Redraw text canvas with responsive font sizes
         canvas.width = newWidth;
         canvas.height = newHeight;
         ctx.clearRect(0, 0, newWidth, newHeight);
 
-        const newFontSize = Math.round(80 * window.devicePixelRatio);
-        ctx.font = `400 ${newFontSize}px 'Talesha', serif`;
+        // Calculate responsive font sizes based on screen width
+        const responsiveScale = isMobile ? 0.7 : 1.0; // Reduce text size on mobile
+        const newFontSize = Math.round(80 * window.devicePixelRatio * responsiveScale);
+        const newTitleFontSize = Math.round(20 * window.devicePixelRatio * responsiveScale);
+        const newMagnificentFontSize = Math.round(newFontSize * 1.1);
+
+        // Redraw CORALIS
+        ctx.font = `${newTitleFontSize}px 'Montserrat', sans-serif`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
-        ctx.fillText('Explore the magnificent', newWidth/2, newHeight/2 - 50);
+        ctx.fillStyle = '#2E3F3C';
+        
+        // Calculate letter spacing
+        const letterSpacing = newTitleFontSize * 0.2;
+        
+        // Calculate total width with spacing
+        let totalWidth = 0;
+        const coralText = 'CORALIS';
+        for (let i = 0; i < coralText.length; i++) {
+          totalWidth += ctx.measureText(coralText[i]).width;
+        }
+        totalWidth += letterSpacing * (coralText.length - 1);
+        
+        // Calculate starting position to center the text
+        const startX = newWidth/2 - totalWidth/2;
+        
+        // Draw each letter with spacing
+        let currentX = startX;
+        for (let i = 0; i < coralText.length; i++) {
+          ctx.fillText(coralText[i], currentX + ctx.measureText(coralText[i]).width/2, newHeight/2 - newFontSize);
+          currentX += ctx.measureText(coralText[i]).width + letterSpacing;
+        }
+        
+        // Draw "Explore the"
+        ctx.font = `200 ${newFontSize}px 'Talesha', serif`;
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.90)';
+        ctx.fillText('Explore the', newWidth/2, newHeight/2);
+        
+        // Create gradient for "Magnificent"
+        const gradient = ctx.createLinearGradient(
+          newWidth/2 - 300, newHeight/2 + newFontSize, 
+          newWidth/2 + 300, newHeight/2 + newFontSize
+        );
+        gradient.addColorStop(0, '#873A3B');
+        gradient.addColorStop(0.5, '#EE4D6B');
+        
+        // Draw "Magnificent"
+        ctx.font = `italic ${newMagnificentFontSize}px 'Talesha', serif`;
+        ctx.fillStyle = gradient;
+        ctx.fillText('Magnificent', newWidth/2, newHeight/2 + newFontSize);
         
         textTexture.needsUpdate = true;
         console.log("Resized");
       };
       
       window.addEventListener('resize', handleResize);
-      
+      window.addEventListener('orientationchange', () => {
+        // Small delay to ensure orientation change is complete
+        setTimeout(handleResize, 100);
+      });
+
       renderer.domElement.addEventListener('mousemove', (e) => {
         mouse.x = e.clientX * window.devicePixelRatio;
         mouse.y = (window.innerHeight - e.clientY) * window.devicePixelRatio;
@@ -303,21 +370,30 @@ export function WaterRippleEffect() {
 
       console.log("Starting animation loop");
       animate();
+      
+      // Store handleResize for cleanup
+      const cleanup = () => {
+        cancelAnimationFrame(animationFrameId);
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('orientationchange', () => {});
+        if (rtA) rtA.dispose();
+        if (rtB) rtB.dispose();
+        if (textTexture) textTexture.dispose();
+        if (backgroundTexture) backgroundTexture.dispose();
+        if (renderer) renderer.dispose();
+        if (containerRef.current) containerRef.current.innerHTML = '';
+        console.log("Cleanup complete");
+      };
+      
+      // Return cleanup function
+      return cleanup;
     };
     
-    init();
+    const cleanup = init();
     
     // Cleanup
     return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', () => {});
-      if (rtA) rtA.dispose();
-      if (rtB) rtB.dispose();
-      if (textTexture) textTexture.dispose();
-      if (backgroundTexture) backgroundTexture.dispose();
-      if (renderer) renderer.dispose();
-      if (containerRef.current) containerRef.current.innerHTML = '';
-      console.log("Cleanup complete");
+      if (cleanup) cleanup();
     };
   }, []);
 
