@@ -1,6 +1,5 @@
 'use client'
 
-import { AnimatePresence } from "motion/react";
 
 export default function MainLayout({
   children,
@@ -9,9 +8,7 @@ export default function MainLayout({
 }) {
   return (
     <main className="overflow-hidden">
-      <AnimatePresence mode="wait">
         {children}
-      </AnimatePresence>
     </main>
   );
 }

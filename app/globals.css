@@ -4,7 +4,9 @@
 
 @layer base {
   :root {
-    --font-montserrat: 'Montserrat', sans-serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-display: 'Talesha', serif;
   }
 }
 
@@ -68,6 +70,11 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Fonts */
+  --font-sans: 'Montserrat', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-display: 'Talesha', serif;
 }
 
 @media (prefers-color-scheme: dark) {
