@@ -136,7 +136,7 @@ export function WaterRippleEffect() {
       // Draw the tagline
       ctx.font = `400 ${fontSize}px 'Talesha', serif`;
       ctx.fillStyle = 'rgba(0, 0, 0, 0.95)';  // Reset to original color for the tagline
-      ctx.fillText('Explore the', width/2, height/2);
+      ctx.fillText('Sea it', width/2, height/2);
       ctx.shadowBlur = 10;
       ctx.shadowColor = 'rgba(0, 0, 0, 0.07)';
       ctx.shadowOffsetX = 20;
@@ -163,7 +163,7 @@ export function WaterRippleEffect() {
       
       // Initial gradient (will be updated in animation loop)
       ctx.fillStyle = createGradient();
-      ctx.fillText('Magnificent', width/2, height/2 + fontSize);
+      ctx.fillText('Luxury', width/2, height/2 + fontSize);
       
       // Store the gradient creation function for animation
       // This will be used in the animation loop elsewhere
@@ -185,12 +185,12 @@ export function WaterRippleEffect() {
         // Redraw "Explore the"
         ctx.font = `200 ${fontSize}px 'Talesha', serif`;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.90)';
-        ctx.fillText('Explore the', width/2, height/2);
+        ctx.fillText('Dive into', width/2, height/2);
         
         // Update and redraw "Magnificent" with animated gradient
         ctx.font = `italic ${magnificentFontSize}px 'Talesha', serif`;
         ctx.fillStyle = createGradient();
-        ctx.fillText('Magnificent', width/2, height/2 + fontSize);
+        ctx.fillText('Luxury', width/2, height/2 + fontSize);
         
         // Update texture
         textTexture.needsUpdate = true;
@@ -296,7 +296,7 @@ export function WaterRippleEffect() {
         // Draw "Explore the"
         ctx.font = `200 ${newFontSize}px 'Talesha', serif`;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.90)';
-        ctx.fillText('Explore the', newWidth/2, newHeight/2);
+        ctx.fillText('Dive into', newWidth/2, newHeight/2);
         
         // Create gradient for "Magnificent"
         const gradient = ctx.createLinearGradient(
@@ -309,7 +309,7 @@ export function WaterRippleEffect() {
         // Draw "Magnificent"
         ctx.font = `italic ${newMagnificentFontSize}px 'Talesha', serif`;
         ctx.fillStyle = gradient;
-        ctx.fillText('Magnificent', newWidth/2, newHeight/2 + newFontSize);
+        ctx.fillText('Luxury', newWidth/2, newHeight/2 + newFontSize);
         
         textTexture.needsUpdate = true;
         console.log("Resized");
