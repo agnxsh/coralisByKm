@@ -59,7 +59,7 @@ void main() {
     if (mouse.x > 0.0) {
         float dist = distance(uv, mouseUv);
         if (dist <= 0.02) {
-            pressure += 2.0 * (1.0 - dist / 0.02);
+            pressure += 0.75 * (1.0 - dist / 0.02);
         }
     }
 
@@ -111,7 +111,7 @@ void main() {
     
     // Get distortion data from simulation (mouse ripples)
     vec4 data = texture2D(textureA, uv);
-    vec2 rippleDistortion = 0.08 * data.zw;
+    vec2 rippleDistortion = 0.15 * data.zw;
     
     // Simple object-cover implementation
     // For the background image to cover the entire container while maintaining aspect ratio

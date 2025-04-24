@@ -6,22 +6,22 @@ import { WaterRippleEffect } from "@/app/_components/Scene";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleUserInteraction = (withAudio: boolean) => {
+    setIsAudioPlaying(withAudio);
+    
+    // Remove loading overlay
+    setIsLoading(false);
+  };
 
   return (
     <AnimatePresence mode="wait">
-      {isLoading && <LoadingOverlay key='loading-overlay' />}
+      {isLoading && <LoadingOverlay key='loading-overlay' onUserInteraction={handleUserInteraction} />}
       {(
         <motion.div
           className="flex flex-col min-h-screen relative overflow-hidden"
@@ -108,7 +108,8 @@ export default function Home() {
             </Button>
           </div>
 
-          <AudioPlayer />
+          <AudioPlayer isPlaying={isAudioPlaying} setIsPlaying={setIsAudioPlaying} />
+          
         </motion.div>
       )}
     </AnimatePresence>

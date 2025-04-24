@@ -2,11 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Music, Pause } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-export function AudioPlayer() {
+export function AudioPlayer({isPlaying, setIsPlaying}: {isPlaying: boolean, setIsPlaying: (isPlaying: boolean) => void}) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   const toggleAudio = () => {
     if (audioRef.current) {
@@ -19,6 +18,14 @@ export function AudioPlayer() {
       setIsPlaying(!isPlaying);
     }
   };
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current?.play();
+    } else {
+      audioRef.current?.pause();
+    }
+  }, [isPlaying]);
 
   return (
     <>

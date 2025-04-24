@@ -23,7 +23,7 @@ declare global {
 export function WaterRippleEffect() {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    console.log("Effect running");
+    // console.log("Effect running");
     let simScene: THREE.Scene;
     let scene: THREE.Scene;
     let camera: THREE.OrthographicCamera;
@@ -35,7 +35,7 @@ export function WaterRippleEffect() {
     let animationFrameId: number;
 
     const init = () => {
-      console.log("Init running");
+      // console.log("Init running");
       scene = new THREE.Scene();
       simScene = new THREE.Scene();
       camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -46,9 +46,9 @@ export function WaterRippleEffect() {
       if (containerRef.current) {
         containerRef.current.innerHTML = ''; // Clear previous content
         containerRef.current.appendChild(renderer.domElement);
-        console.log("Renderer attached to DOM");
+        // console.log("Renderer attached to DOM");
       } else {
-        console.error("Container ref is null");
+        // console.error("Container ref is null");
         return;
       }
 
@@ -75,7 +75,7 @@ export function WaterRippleEffect() {
       backgroundTexture = textureLoader.load(
         '/water3.jpg',
         (texture) => {
-          console.log("Background texture loaded");
+          // console.log("Background texture loaded");
           // Use linear filtering for smoother rendering
           texture.minFilter = THREE.LinearFilter;
           texture.magFilter = THREE.LinearFilter;
@@ -100,7 +100,7 @@ export function WaterRippleEffect() {
 
       // Determine if we're on mobile for responsive text sizing
       const isMobile = window.innerWidth < 768;
-      const responsiveScale = isMobile ? 0.7 : 1.0; // Reduce text size on mobile
+      const responsiveScale = isMobile ? 0.9 : 1.0; // Reduce text size on mobile
 
       // Draw the tagline with responsive font sizes
       const fontSize = Math.round(80 * window.devicePixelRatio * responsiveScale);
@@ -134,7 +134,7 @@ export function WaterRippleEffect() {
       }
 
       // Draw the tagline
-      ctx.font = `400 ${fontSize}px 'Talesha', serif`;
+      ctx.font = `1000 ${fontSize}px 'Talesha', serif`;
       ctx.fillStyle = 'rgba(0, 0, 0, 0.95)';  // Reset to original color for the tagline
       ctx.fillText('Sea it', width/2, height/2);
       ctx.shadowBlur = 10;
@@ -163,7 +163,7 @@ export function WaterRippleEffect() {
       
       // Initial gradient (will be updated in animation loop)
       ctx.fillStyle = createGradient();
-      ctx.fillText('Luxury', width/2, height/2 + fontSize);
+      ctx.fillText('Be it', width/2, height/2 + fontSize);
       
       // Store the gradient creation function for animation
       // This will be used in the animation loop elsewhere
@@ -183,27 +183,27 @@ export function WaterRippleEffect() {
         }
         
         // Redraw "Explore the"
-        ctx.font = `200 ${fontSize}px 'Talesha', serif`;
+        ctx.font = `1000 ${fontSize}px 'Talesha', serif`;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.90)';
-        ctx.fillText('Dive into', width/2, height/2);
+        ctx.fillText('Sea it', width/2, height/2);
         
         // Update and redraw "Magnificent" with animated gradient
         ctx.font = `italic ${magnificentFontSize}px 'Talesha', serif`;
         ctx.fillStyle = createGradient();
-        ctx.fillText('Luxury', width/2, height/2 + fontSize);
+        ctx.fillText('Be it', width/2, height/2 + fontSize);
         
         // Update texture
         textTexture.needsUpdate = true;
       };
 
-      console.log("Canvas text drawn");
+      // console.log("Canvas text drawn");
 
       textTexture = new THREE.CanvasTexture(canvas);
       textTexture.minFilter = THREE.LinearFilter;
       textTexture.magFilter = THREE.LinearFilter;
       textTexture.format = THREE.RGBAFormat;
       textTexture.needsUpdate = true;
-      console.log("Text texture created");
+      // console.log("Text texture created");
 
       const material = new THREE.ShaderMaterial({
         uniforms: {
@@ -261,7 +261,7 @@ export function WaterRippleEffect() {
         ctx.clearRect(0, 0, newWidth, newHeight);
 
         // Calculate responsive font sizes based on screen width
-        const responsiveScale = isMobile ? 0.7 : 1.0; // Reduce text size on mobile
+        const responsiveScale = isMobile ? 0.9 : 1.0; // Reduce text size on mobile
         const newFontSize = Math.round(80 * window.devicePixelRatio * responsiveScale);
         const newTitleFontSize = Math.round(20 * window.devicePixelRatio * responsiveScale);
         const newMagnificentFontSize = Math.round(newFontSize * 1.1);
@@ -294,9 +294,9 @@ export function WaterRippleEffect() {
         }
         
         // Draw "Explore the"
-        ctx.font = `200 ${newFontSize}px 'Talesha', serif`;
+        ctx.font = `1000 ${newFontSize}px 'Talesha', serif`;
         ctx.fillStyle = 'rgba(0, 0, 0, 0.90)';
-        ctx.fillText('Dive into', newWidth/2, newHeight/2);
+        ctx.fillText('Sea it', newWidth/2, newHeight/2);
         
         // Create gradient for "Magnificent"
         const gradient = ctx.createLinearGradient(
@@ -309,10 +309,10 @@ export function WaterRippleEffect() {
         // Draw "Magnificent"
         ctx.font = `italic ${newMagnificentFontSize}px 'Talesha', serif`;
         ctx.fillStyle = gradient;
-        ctx.fillText('Luxury', newWidth/2, newHeight/2 + newFontSize);
+        ctx.fillText('Be it', newWidth/2, newHeight/2 + newFontSize);
         
         textTexture.needsUpdate = true;
-        console.log("Resized");
+        // console.log("Resized");
       };
       
       window.addEventListener('resize', handleResize);
@@ -368,7 +368,7 @@ export function WaterRippleEffect() {
       renderer.clear();
       renderer.setRenderTarget(null);
 
-      console.log("Starting animation loop");
+      // console.log("Starting animation loop");
       animate();
       
       // Store handleResize for cleanup
@@ -382,7 +382,7 @@ export function WaterRippleEffect() {
         if (backgroundTexture) backgroundTexture.dispose();
         if (renderer) renderer.dispose();
         if (containerRef.current) containerRef.current.innerHTML = '';
-        console.log("Cleanup complete");
+        // console.log("Cleanup complete");
       };
       
       // Return cleanup function
