@@ -1,7 +1,7 @@
 export const siteConfig = () => {
   return {
     title: 'Coralis',
-    description: 'Explore the Magnificent',
+    description: 'Sea it, be it',
     baseUrl: 'https://coralis.com',
     ogImage: '/og-image.png',
     twitter: '@coralis',
