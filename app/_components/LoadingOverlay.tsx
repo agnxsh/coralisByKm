@@ -88,7 +88,7 @@ export const LoadingOverlay = ({ onUserInteraction }: LoadingOverlayProps) => {
               y: 0,
               transition: { duration: 0.5, ease: "easeOut" }
             }}
-            className="mt-6 flex gap-4"
+            className="mt-6 flex flex-col md:flex-row gap-4"
           >
             <Button
               onClick={() => handleStart(true)}
