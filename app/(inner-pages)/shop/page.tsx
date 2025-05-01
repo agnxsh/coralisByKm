@@ -1,5 +1,6 @@
 import ProductCard from '@/app/_components/ProductCard';
 import { fetchProducts } from '@/app/_utils/fetchProducts';
+import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
@@ -23,9 +24,9 @@ export default async function ShopPage() {
               Rediscover the joy of beachwear with our collection of stylish and comfortable clothing.
             </p>
             <p className="text-gray-800 font-medium mb-6">Starting at $7.99</p>
-            <button className="bg-black text-white px-8 py-3 font-medium hover:bg-gray-800 transition-colors">
+            <Button className="">
               Shop Now
-            </button>
+            </Button>
           </div>
           <div className="relative h-[300px] md:h-[500px]">
             <div className="absolute right-0 top-0 w-full h-full flex justify-center items-center">

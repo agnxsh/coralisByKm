@@ -17,3 +17,8 @@ INSTRUCTIONS FOR UI DESIGN:
 7. Do not create random SVG shapes that float around the screen. 
 8. Absolute positioning inside product, payment or shopping pages is not appreciated
 9. Only use motion/react for animation
+
+
+MCP NOTES: 
+1. Use context7 and shopify-dev-mcp to fetch the documentation on shopify when you are unsure which API to call or what is the data structure of a patricular call.
+2. Use shopify mcp to fetch data and verify the data present on my shopify store.

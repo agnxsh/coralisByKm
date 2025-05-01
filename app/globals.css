@@ -13,13 +13,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-primary: #2594b5;
+  --color-primary: #000000;
   --color-primary-foreground: #ffffff;
   --color-secondary: #d5ba1d;
   --color-secondary-foreground: #ffffff;
-  --color-accent: #ece358;
+  --color-accent: #dadada;
   --color-accent-foreground: #ffffff;
-  --color-background: #effafc;
+  --color-background: #efefea;
   --color-foreground: #224557;
   --color-sky-blue-50: #effafc;
   --color-sky-blue-100: #d6f1f7;
@@ -76,17 +76,17 @@
   --font-serif: 'Playfair Display', serif;
   --font-display: 'Talesha', serif;
 }
-
+/* 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: var(--color-sky-blue-400);
     --primary-foreground: var(--color-sky-blue-950);
     --secondary: var(--color-drover-300);
     --secondary-foreground: var(--color-drover-950);
-    --accent: var(--color-drover-400);
-    --accent-foreground: var(--color-drover-950);
+    --accent: var(--color-sky-blue-100);
+    --accent-foreground: var(--color-sky-blue-950);
   }
-}
+} */
 
 body {
   margin: 0;
