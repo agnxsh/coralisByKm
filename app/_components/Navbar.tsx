@@ -4,11 +4,24 @@ import { Button } from '@/components/ui/button';
 import { Search, ShoppingCart, User } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { Cart, getCart, getCartId } from '../(auth)/_actions/cart';
 
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
+
+  const [cart, setCart] = useState<Cart | null>(null);
   // const [searchOpen, setSearchOpen] = useState(false);
+
+  useEffect( () => {
+    const fetchCart = async () => {
+      const cartId =  await getCartId();
+      const { cart, success } = cartId ? await getCart(cartId) : { cart: null, success: false };
+      setCart(cart);
+    }
+    fetchCart();
+  }, []);
 
   return (
     <>
@@ -44,10 +57,10 @@ export function Navbar() {
               <Button variant='link' onClick={() => router.push('/account')} className="hover:text-gray-500">
                 <User className='h-10 w-10' />
               </Button>
-              <Button variant='link' className="hover:text-gray-500 relative">
+              <Button variant='link' onClick={() => router.push('/cart')} className="hover:text-gray-500 relative">
                 <ShoppingCart className='h-10 w-10' />
                 <span className="absolute -top-1 -right-1 bg-black text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                  0
+                  {cart?.totalQuantity || 0}
                 </span>
               </Button>
             </div>

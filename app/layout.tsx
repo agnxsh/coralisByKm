@@ -1,6 +1,6 @@
-
 import { Metadata } from 'next';
 import { Montserrat, Playfair_Display } from 'next/font/google';
+import { Toaster } from 'sonner';
 import { siteConfig } from './_utils/siteConfig';
 import './globals.css';
 
@@ -56,6 +56,7 @@ export default function RootLayout({
       </head>
       <body className={`${playfair.variable} ${montserrat.variable} font-sans bg-background`}>
         {children}
+        <Toaster position="top-center" />
       </body>
     </html>
   );

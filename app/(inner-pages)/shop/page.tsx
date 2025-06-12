@@ -12,7 +12,7 @@ export default async function ShopPage() {
   const bestsellers = products.slice(0, 5);
 
   return (
-    <main className="bg-white min-h-screen pt-28 pb-20">
+    <main className="bg-white min-h-screen">
       {/* Hero Banner */}
       <section className="bg-gray-100 mb-16">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">

@@ -11,7 +11,9 @@ const InnerLayout = ({ children }: Props) => {
     <AnimatePresence mode="wait">
     <div>
         <Navbar />
+        <main className='pt-28 pb-20'>
         {children}
+        </main>
     </div>
     </AnimatePresence>
   )

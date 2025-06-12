@@ -1,4 +1,5 @@
 
+import AddToCartButton from '@/app/_components/AddToCartButton';
 import { fetchProducts } from '@/app/_utils/fetchProducts';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,9 +40,9 @@ export default async function ProductDetailPage({ params }: {params: any}) {
   const discountPrice = isOnSale ? (parseFloat(product.priceRange.minVariantPrice.amount) * 1.07).toString() : '';
 
   return (
-    <main className="bg-white pt-28 pb-20">
+    <main className="bg-white pb-20">
       {/* Breadcrumbs */}
-      <div className="container mx-auto px-4 mb-8">
+      <div className="container mx-auto px-4 pt-8">
         <nav className="flex items-center text-sm text-gray-500">
           <Link href="/" className="hover:text-gray-700">
             Home
@@ -131,12 +132,7 @@ export default async function ProductDetailPage({ params }: {params: any}) {
               </div>
               
               {/* Add to cart button */}
-              <button 
-                className="bg-black text-white py-3 px-6 font-medium hover:bg-gray-800 transition-colors flex items-center justify-center"
-                disabled={!isAvailable}
-              >
-                {isAvailable ? 'Add to Cart' : 'Out of Stock'}
-              </button>
+              <AddToCartButton variantId={product.variants.edges[0].node.id} />
             </div>
             
             {/* Additional info */}
