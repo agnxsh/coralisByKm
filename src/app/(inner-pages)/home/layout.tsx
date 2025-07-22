@@ -1,5 +1,7 @@
 'use client';
 
+import MinimalNavbar from "app/_components/MinimalNavbar";
+
 
 
 
@@ -10,7 +12,7 @@ export default function HomeLayout({
 }) {
   return (
     <>
-      {/* <MinimalNavbar /> */}
+      <MinimalNavbar />
       <main>
         {children}
       </main>

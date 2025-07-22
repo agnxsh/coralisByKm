@@ -10,18 +10,12 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
-    "@radix-ui/react-label": "^2.1.4",
-    "@radix-ui/react-separator": "^1.1.4",
-    "@radix-ui/react-slot": "^1.2.0",
-    "@radix-ui/react-tabs": "^1.1.9",
     "@react-three/drei": "^10.0.6",
     "@react-three/fiber": "^9.1.2",
     "babel-plugin-glsl": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "graphql": "^16.11.0",
-    "graphql-request": "^7.1.2",
     "lucide-react": "^0.487.0",
     "motion": "^12.6.5",
     "react-hook-form": "^7.56.1",
@@ -45,7 +39,7 @@
     "react-country-flag": "^3.1.0",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "server-only": "^0.0.1",
-    "tailwindcss-radix": "^3.0.23",
+    "tailwindcss-radix": "^2.8.0",
     "webpack": "^5"
     
   },
@@ -67,11 +61,20 @@
     "eslint-config-next": "15.0.3",
     "postcss": "^8.4.8",
     "prettier": "^2.8.8",
-    "tailwindcss": "^4",
+    "tailwindcss": "3.0.23",
     "typescript": "^5.3.2"
   },
   "graphql": {
     "schema": "https://localhost:3001/graphql",
     "documents": "**/*.{graphql,js,ts,jsx,tsx}"
+  },
+  "packageManager": "yarn@3.2.3",
+  "resolutions": {
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+  },
+  "overrides": {
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106"
   }
 }
