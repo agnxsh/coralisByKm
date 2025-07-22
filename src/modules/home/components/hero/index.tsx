@@ -3,8 +3,10 @@
 import { Button } from "@medusajs/ui";
 import { motion } from "motion/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <div className="relative h-[80vh] bg-gradient-to-br from-stone-50 to-neutral-100 overflow-hidden">
       {/* Background decorative elements */}
@@ -80,6 +82,7 @@ const Hero = () => {
               <Button 
                 size="large"
                 className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 text-lg font-medium rounded-none transition-all duration-300 hover:scale-105"
+                onClick={() => router.push('/store')}
               >
                 Shop Now
               </Button>

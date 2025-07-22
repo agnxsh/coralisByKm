@@ -146,6 +146,17 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  if (request.nextUrl.pathname === "/store-home") {
+    const queryString = request.nextUrl.search ? request.nextUrl.search : ""
+
+  // If no country code is set, we redirect to the relevant region.
+    if (!urlHasCountryCode && countryCode) {
+    redirectUrl = `${request.nextUrl.origin}/${countryCode}`
+    response = NextResponse.redirect(`${redirectUrl}`, 307)
+    }
+    return response
+  }
+
   const queryString = request.nextUrl.search ? request.nextUrl.search : ""
 
   // If no country code is set, we redirect to the relevant region.
