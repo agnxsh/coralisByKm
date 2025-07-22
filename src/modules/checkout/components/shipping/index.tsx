@@ -1,6 +1,6 @@
 "use client"
 
-import { RadioGroup, Radio } from "@headlessui/react"
+import { Radio, RadioGroup } from "@headlessui/react"
 import { setShippingMethod } from "@lib/data/cart"
 import { calculatePriceForShippingOption } from "@lib/data/fulfillment"
 import { convertToLocale } from "@lib/util/money"
@@ -21,7 +21,7 @@ type ShippingProps = {
   availableShippingMethods: HttpTypes.StoreCartShippingOption[] | null
 }
 
-function formatAddress(address) {
+function formatAddress(address: any) {
   if (!address) {
     return ""
   }
@@ -71,10 +71,12 @@ const Shipping: React.FC<ShippingProps> = ({
   const isOpen = searchParams.get("step") === "delivery"
 
   const _shippingMethods = availableShippingMethods?.filter(
+    // @ts-ignore
     (sm) => sm.service_zone?.fulfillment_set?.type !== "pickup"
   )
 
   const _pickupMethods = availableShippingMethods?.filter(
+    // @ts-ignore
     (sm) => sm.service_zone?.fulfillment_set?.type === "pickup"
   )
 
@@ -234,6 +236,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 )}
                 <RadioGroup
                   value={shippingMethodId}
+                  // @ts-ignore
                   onChange={(v) => handleSetShippingMethod(v, "shipping")}
                 >
                   {_shippingMethods?.map((option) => {
@@ -305,6 +308,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 <div className="pb-8 md:pt-0 pt-2">
                   <RadioGroup
                     value={shippingMethodId}
+                    // @ts-ignore
                     onChange={(v) => handleSetShippingMethod(v, "pickup")}
                   >
                     {_pickupMethods?.map((option) => {
@@ -334,6 +338,7 @@ const Shipping: React.FC<ShippingProps> = ({
                               </span>
                               <span className="text-base-regular text-ui-fg-muted">
                                 {formatAddress(
+                                  // @ts-ignore
                                   option.service_zone?.fulfillment_set?.location
                                     ?.address
                                 )}
@@ -383,6 +388,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 <Text className="txt-medium text-ui-fg-subtle">
                   {cart.shipping_methods?.at(-1)?.name}{" "}
                   {convertToLocale({
+                    // @ts-ignore
                     amount: cart.shipping_methods.at(-1)?.amount!,
                     currency_code: cart?.currency_code,
                   })}

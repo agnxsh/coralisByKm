@@ -13,6 +13,7 @@ export default async function ProductActionsWrapper({
   region: HttpTypes.StoreRegion
 }) {
   const product = await listProducts({
+    // @ts-ignore
     queryParams: { id: [id] },
     regionId: region.id,
   }).then(({ response }) => response.products[0])

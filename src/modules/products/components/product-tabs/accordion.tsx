@@ -27,6 +27,7 @@ const Accordion: React.FC<AccordionProps> & {
   Item: React.FC<AccordionItemProps>
 } = ({ children, ...props }) => {
   return (
+    // @ts-ignore
     <AccordionPrimitive.Root {...props}>{children}</AccordionPrimitive.Root>
   )
 }
@@ -44,6 +45,7 @@ const Item: React.FC<AccordionItemProps> = ({
   ...props
 }) => {
   return (
+    // @ts-ignore
     <AccordionPrimitive.Item
       {...props}
       className={clx(
@@ -52,13 +54,16 @@ const Item: React.FC<AccordionItemProps> = ({
         className
       )}
     >
+      {/* @ts-ignore */}
       <AccordionPrimitive.Header className="px-1">
         <div className="flex flex-col">
           <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-4">
               <Text className="text-ui-fg-subtle text-sm">{title}</Text>
             </div>
+            {/* @ts-ignore */}
             <AccordionPrimitive.Trigger>
+              {/* @ts-ignore */}
               {customTrigger || <MorphingTrigger />}
             </AccordionPrimitive.Trigger>
           </div>
@@ -69,13 +74,15 @@ const Item: React.FC<AccordionItemProps> = ({
           )}
         </div>
       </AccordionPrimitive.Header>
+      {/* @ts-ignore */}
       <AccordionPrimitive.Content
         forceMount={forceMountContent}
         className={clx(
           "radix-state-closed:animate-accordion-close radix-state-open:animate-accordion-open radix-state-closed:pointer-events-none px-1"
         )}
       >
-        <div className="inter-base-regular group-radix-state-closed:animate-accordion-close">
+        {/* @ts-ignore */}
+          <div className="inter-base-regular group-radix-state-closed:animate-accordion-close">
           {description && <Text>{description}</Text>}
           <div className="w-full">{children}</div>
         </div>

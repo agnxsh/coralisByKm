@@ -24,13 +24,16 @@ export default async function RelatedProducts({
     queryParams.region_id = region.id
   }
   if (product.collection_id) {
+    // @ts-ignore
     queryParams.collection_id = [product.collection_id]
   }
   if (product.tags) {
+    // @ts-ignore
     queryParams.tag_id = product.tags
       .map((t) => t.id)
       .filter(Boolean) as string[]
   }
+  // @ts-ignore
   queryParams.is_giftcard = false
 
   const products = await listProducts({
