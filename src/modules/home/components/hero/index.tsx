@@ -21,7 +21,7 @@ const Hero = () => {
           alt=""
           width={800}
           height={800}
-          className="object-contain w-[1000px] h-[1000px] md:w-[80vw] md:h-[80vw] blur-sm md:blur-md"
+          className="object-contain w-[1000px] h-[1000px] md:w-[30vw] md:h-[30vw] blur-sm md:blur-md"
         />
       </motion.div>
       <motion.div
