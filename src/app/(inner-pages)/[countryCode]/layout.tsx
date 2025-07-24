@@ -1,3 +1,4 @@
+import LeafyBackground from '@modules/layout/components/leafy-background'
 import React from 'react'
 
 
@@ -7,7 +8,10 @@ type Props = {
 
 const StoreLayout = ({ children }: Props) => {
   return (
-    <main className="relative">{children}</main>
+    <main className="relative overflow-hidden">
+      <LeafyBackground />
+      {children}
+    </main>
   )
 }
 

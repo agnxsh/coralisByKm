@@ -81,8 +81,11 @@ const Payment = ({
       const checkActiveSession =
         activeSession?.provider_id === selectedPaymentMethod
 
+        console.log("checkActiveSession",checkActiveSession)
+        console.log('cart', cart)
+
       if (!checkActiveSession) {
-        await initiatePaymentSession(cart, {
+        await initiatePaymentSession({...cart, total: '10'}, {
           provider_id: selectedPaymentMethod,
         })
       }
@@ -97,6 +100,7 @@ const Payment = ({
       }
     } catch (err: any) {
       setError(err.message)
+      console.log("err",err)
     } finally {
       setIsLoading(false)
     }

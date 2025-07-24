@@ -46,7 +46,7 @@ export const RazorpayPaymentButton = ({
     
     const options: RazorpayOrderOptions = {
       key:process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID??process.env.NEXT_PUBLIC_RAZORPAY_TEST_KEY_ID??"your_key_id",
-      callback_url: `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/razorpay/hooks`,
+      callback_url: `${process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL}/hooks/payments/razorpay_razorpay`,
       amount: session.amount*100*100,
       order_id: orderData.razorpayOrder.id,
       currency: cart.currency_code.toUpperCase() as CurrencyCode,
