@@ -2,16 +2,40 @@ import { Metadata } from "next"
 
 import { listCartOptions, retrieveCart } from "@lib/data/cart"
 import { retrieveCustomer } from "@lib/data/customer"
-import { getBaseURL } from "@lib/util/env"
 import { StoreCartShippingOption } from "@medusajs/types"
 import CartMismatchBanner from "@modules/layout/components/cart-mismatch-banner"
 
 import Footer from "@modules/layout/templates/footer"
 import Nav from "@modules/layout/templates/nav"
 import FreeShippingPriceNudge from "@modules/shipping/components/free-shipping-price-nudge"
+import { siteConfig } from "app/_utils/siteConfig"
 
-export const metadata: Metadata = {
-  metadataBase: new URL(getBaseURL()),
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: siteConfig().title,
+    description: siteConfig().description,
+    openGraph: {
+      title: siteConfig().title,
+      description: siteConfig().description,
+      type: 'website',
+      url: siteConfig().baseUrl,
+      images: [
+        {
+          url: siteConfig().ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig().name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteConfig().title,
+      description: siteConfig().description,
+      images: [siteConfig().ogImage],
+      creator: siteConfig().twitter,
+    },
+  };
 }
 
 export default async function PageLayout(props: { children: React.ReactNode }) {

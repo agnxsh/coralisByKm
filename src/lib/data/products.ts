@@ -12,11 +12,13 @@ export const listProducts = async ({
   queryParams,
   countryCode,
   regionId,
+  collectionId,
 }: {
   pageParam?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
   countryCode?: string
   regionId?: string
+  collectionId?: string
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null
@@ -62,6 +64,7 @@ export const listProducts = async ({
           limit,
           offset,
           region_id: region?.id,
+          collection_id: collectionId,
           fields:
             "*variants.calculated_price,+variants.inventory_quantity,+metadata,+tags",
           ...queryParams,
@@ -133,4 +136,17 @@ export const listProductsWithSort = async ({
     nextPage,
     queryParams,
   }
+}
+
+
+export const retrieveProduct = async ({ handle }: { handle: string }) => {
+  return sdk.client.fetch<HttpTypes.StoreProduct>(`/store/products/${handle}`, {
+    method: "GET",
+    headers: {
+      ...(await getAuthHeaders()),
+    },
+    next: {
+      ...(await getCacheOptions("products")),
+    },
+  })
 }
