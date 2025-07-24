@@ -4,9 +4,9 @@ type Props = {}
 
 const LeafyBackground = (props: Props) => {
   return (
-    <div className='w-screen overflow-hidden z-[-10]'>
+    <div className='w-screen overflow-hidden z-[-999]'>
       {/* Background decorative elements */}
-      <div className="absolute -top-10 -left-40 md:top-[50vh] md:-left-20 opacity-20">
+      <div className="absolute -top-10 -left-40 md:top-[50vh] md:-left-20 opacity-20 z-[-9999]">
         <Image
           src="/palm1.png"
           alt=""
@@ -15,7 +15,7 @@ const LeafyBackground = (props: Props) => {
           className="object-contain w-[500px] h-[500px] blur-[8px] md:w-[30vw] md:h-[30vw] md:blur-md"
         />
       </div>
-      <div className="absolute -bottom-10 -right-40 md:-bottom-[20vh]  md:-right-[20vw] opacity-[0.4]">
+      <div className="absolute -bottom-10 -right-40 md:-bottom-[20vh]  md:-right-[20vw] opacity-[0.4] z-[-9999]">
         <Image
           src="/palm2.png"
           alt=""
