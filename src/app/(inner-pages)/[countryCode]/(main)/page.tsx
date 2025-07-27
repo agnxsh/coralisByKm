@@ -4,11 +4,34 @@ import { listCollections } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 import FeaturedProducts from "@modules/home/components/featured-products"
 import Hero from "@modules/home/components/hero"
+import { siteConfig } from "app/_utils/siteConfig"
 
-export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
-  description:
-    "A performant frontend ecommerce starter template with Next.js 15 and Medusa.",
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: siteConfig().title,
+    description: siteConfig().description,
+    openGraph: {
+      title: siteConfig().title,
+      description: siteConfig().description,
+      type: 'website',
+      url: siteConfig().baseUrl,
+      images: [
+        {
+          url: siteConfig().ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig().name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: siteConfig().title,
+      description: siteConfig().description,
+      images: [siteConfig().ogImage],
+      creator: siteConfig().twitter,
+    },
+  };
 }
 
 export default async function Home(props: {
@@ -31,7 +54,7 @@ export default async function Home(props: {
   return (
     <>
       <Hero />
-      <div className="py-12">
+      <div className="py-6">
         <ul className="flex flex-col gap-x-6">
           <FeaturedProducts collections={collections} region={region} />
         </ul>

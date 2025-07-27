@@ -8,7 +8,7 @@ type Props = {
 
 const StoreLayout = ({ children }: Props) => {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden ">
       <LeafyBackground />
       {children}
     </main>

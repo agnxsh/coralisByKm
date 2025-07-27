@@ -1,6 +1,7 @@
 'use client';
 
-import { Button } from '@medusajs/ui';
+
+import { Button } from '@modules/common/components/button';
 import { Music, Pause } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
@@ -38,7 +39,7 @@ export function AudioPlayer({isPlaying, setIsPlaying}: {isPlaying: boolean, setI
       />
       <Button 
         onClick={toggleAudio} 
-        className="absolute top-6 left-6 z-50 bg-black/10 backdrop-blur-sm hover:bg-black/20 text-white/90 rounded-full p-3 transition-all duration-300"
+        className="absolute bottom-6 md:top-6 left-6 h-10 w-10 z-50 bg-black/10 backdrop-blur-sm hover:bg-black/20 text-white/90 rounded-full p-3 transition-all duration-300"
         aria-label={isPlaying ? "Pause background music" : "Play background music"}
       >
         {isPlaying ? (

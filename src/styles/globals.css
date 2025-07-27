@@ -4,6 +4,10 @@
 @import "tailwindcss/utilities";
 /* @import "tw-animate-css"; */
 
+:root {
+  --button-bg: #A66F6F;
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
@@ -57,7 +61,7 @@
   }
 
   .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+    @apply px-4 py-2 rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
   }
 
   .text-xsmall-regular {
@@ -239,3 +243,6 @@
   animation: var(--animate-float-delayed);
 }
 
+/* [data-testid="go-to-cart-button"] {
+  @apply text-button-foreground bg-button-background hover:bg-button-background/90 border border-button-background transition-colors duration-200 ease-in rounded-base shadow-sm;
+} */

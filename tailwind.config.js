@@ -34,6 +34,15 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        background: {
+          // 0: '#f6f5ee'
+          0: '#f7feff'
+        },
+        button: {
+          background: "var(--button-bg, #A66F6F)",
+          foreground: "#FFFFFF",
+        },
+        "ui-button-inverted-hover": "color-mix(in srgb, var(--button-bg, #A66F6F) 80%, black)",
       },
       borderRadius: {
         none: "0px",

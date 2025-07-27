@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@medusajs/ui'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -8,7 +7,7 @@ import { useRouter } from 'next/navigation'
 const Hero = () => {
   const router = useRouter()
   return (
-    <div className="relative h-[80vh] w-full bg-gradient-to-br from-stone-50 to-neutral-100 overflow-hidden">
+    <div className="relative h-[60vh] w-full bg-gradient-to-br from-stone-50 to-neutral-100 overflow-hidden">
       {/* Background decorative elements */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -38,10 +37,9 @@ const Hero = () => {
           className="object-contain w-[1000px] h-[1000px] md:w-[80vw] md:h-[80vw] blur-sm md:blur-md"
         />
       </motion.div>
-
+{/* 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 flex items-center h-screen">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -93,7 +91,6 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right content - Model image */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -109,15 +106,15 @@ const Hero = () => {
                 priority
               />
 
-              {/* Subtle background accent */}
               <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-blue-50/30 to-green-50/30 rounded-2xl transform rotate-3 scale-105"></div>
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
-      {/* Bottom wave decoration */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent"></div>
+      <Image src="https://coralis-images.blr1.cdn.digitaloceanspaces.com/site-images/WhatsApp%20Image%202025-07-25%20at%2020.35.41.jpeg" alt="Beachwear Model" fill className="object-cover object-center" />
+
+      {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/20 to-transparent"></div> */}
     </div>
   )
 }

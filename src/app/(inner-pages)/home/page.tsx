@@ -1,7 +1,7 @@
 "use client";
 
 
-import { Button } from "@medusajs/ui";
+import { Button } from "@modules/common/components/button";
 import { AudioPlayer } from "app/_components/AudioPlayer";
 import { LoadingOverlay } from "app/_components/LoadingOverlay";
 import { Particles } from "app/_components/Particles";

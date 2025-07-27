@@ -2,8 +2,8 @@
 
 import { Heading, Text, clx } from "@medusajs/ui"
 
-import PaymentButton from "../payment-button"
 import { useSearchParams } from "next/navigation"
+import PaymentButton from "../payment-button"
 
 const Review = ({ cart }: { cart: any }) => {
   const searchParams = useSearchParams()
@@ -19,7 +19,7 @@ const Review = ({ cart }: { cart: any }) => {
     (cart.payment_collection || paidByGiftcard)
 
   return (
-    <div className="bg-white">
+    <div className="bg-white p-6">
       <div className="flex flex-row items-center justify-between mb-6">
         <Heading
           level="h2"

@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@medusajs/ui";
+import { Button } from "@modules/common/components/button";
 import { siteConfig } from "app/_utils/siteConfig";
 import { HeadphoneOff, Headphones } from "lucide-react";
 import { motion } from "motion/react";
@@ -88,17 +88,17 @@ export const LoadingOverlay = ({ onUserInteraction }: LoadingOverlayProps) => {
               y: 0,
               transition: { duration: 0.5, ease: "easeOut" }
             }}
-            className="mt-6 flex flex-col md:flex-row gap-4"
+            className="mt-6 flex flex-col md:flex-row gap-4 items-center"
           >
             <Button
               onClick={() => handleStart(true)}
-              className="text-sm tracking-wide rounded-full bg-white text-black py-5 px-8 hover:bg-black hover:text-white transition-all duration-300"
+              className="text-sm tracking-wide rounded-full bg-white text-black md:py-5 md:px-8 py-3 px-4 hover:bg-black hover:text-white transition-all duration-300"
             >
               <Headphones className="w-4 h-4 mr-2" />Enter With Audio
             </Button>
             <Button
               onClick={() => handleStart(false)}
-              className="text-sm tracking-wide rounded-full bg-white text-black py-5 px-8 hover:bg-black hover:text-white transition-all duration-300"
+              className="text-sm tracking-wide rounded-full bg-white text-black md:py-5 md:px-8 py-3 px-4 hover:bg-black hover:text-white transition-all duration-300"
             >
               <HeadphoneOff className="w-4 h-4 mr-2" />Enter Without Audio
             </Button>
