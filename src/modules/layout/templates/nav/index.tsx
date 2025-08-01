@@ -22,7 +22,7 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase font-sans"
+              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase font-sans text-coralis-base font-seasons"
               data-testid="nav-store-link"
             >
               Coralis
@@ -32,7 +32,7 @@ export default async function Nav() {
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
+                className="hover:text-ui-fg-base text-coralis-base"
                 href="/account"
                 data-testid="nav-account-link"
               >
@@ -42,7 +42,7 @@ export default async function Nav() {
             <Suspense
               fallback={
                 <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
+                  className="hover:text-ui-fg-base flex gap-2 text-coralis-base"
                   href="/cart"
                   data-testid="nav-cart-link"
                 >

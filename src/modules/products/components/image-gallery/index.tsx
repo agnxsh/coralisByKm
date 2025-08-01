@@ -66,29 +66,19 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           {/* Navigation arrows - only show if more than 1 image */}
           {images.length > 1 && (
             <>
-              <motion.button
+              <button
                 onClick={prevImage}
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-md rounded-full p-3 transition-all duration-300 hover:scale-105 z-10"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
               >
                 <ChevronLeft size="20" color="#374151" />
-              </motion.button>
+              </button>
 
-              <motion.button
+              <button
                 onClick={nextImage}
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white shadow-md rounded-full p-3 transition-all duration-300 hover:scale-105 z-10"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
               >
                 <ChevronRight size="20" color="#374151" />
-              </motion.button>
+              </button>
             </>
           )}
 

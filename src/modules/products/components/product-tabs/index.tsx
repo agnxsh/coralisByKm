@@ -4,8 +4,8 @@ import Back from "@modules/common/icons/back"
 import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
 
-import Accordion from "./accordion"
 import { HttpTypes } from "@medusajs/types"
+import Accordion from "./accordion"
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
@@ -87,7 +87,7 @@ const ShippingInfoTab = () => {
           <div>
             <span className="font-semibold">Fast delivery</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
+              Your package will arrive in 10-14 business days at your pick up
               location or in the comfort of your home.
             </p>
           </div>
@@ -105,11 +105,9 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <Back />
           <div>
-            <span className="font-semibold">Easy returns</span>
+            <span className="font-semibold">Returns Policy</span>
             <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
+            We will email you once we receive and review your return, and let you know if your refund is approved.
             </p>
           </div>
         </div>

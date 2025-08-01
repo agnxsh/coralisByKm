@@ -36,12 +36,22 @@ export default function ProductActions({
   const countryCode = useParams().countryCode as string
 
   // If there is only 1 variant, preselect the options
+  // If there are multiple variants, preselect the first value of each option
   useEffect(() => {
     if (product.variants?.length === 1) {
       const variantOptions = optionsAsKeymap(product.variants[0].options)
       setOptions(variantOptions ?? {})
+    } else if (product.variants && product.variants.length > 1 && product.options) {
+      // Select the first value of each option as default
+      const defaultOptions: Record<string, string> = {}
+      product.options.forEach((option) => {
+        if (option.values && option.values.length > 0) {
+          defaultOptions[option.id] = option.values[0].value
+        }
+      })
+      setOptions(defaultOptions)
     }
-  }, [product.variants])
+  }, [product.variants, product.options])
 
   const selectedVariant = useMemo(() => {
     if (!product.variants || product.variants.length === 0) {

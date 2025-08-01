@@ -38,6 +38,9 @@ module.exports = {
           // 0: '#f6f5ee'
           0: '#f7feff'
         },
+        coralis: {
+          base: "#A66F6F"
+        },
         button: {
           background: "var(--button-bg, #A66F6F)",
           foreground: "#FFFFFF",
@@ -76,6 +79,10 @@ module.exports = {
           "Roboto",
           "Helvetica Neue",
           "Ubuntu",
+          "sans-serif",
+        ],
+        seasons: [
+          "The Seasons",
           "sans-serif",
         ],
       },

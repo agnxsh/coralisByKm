@@ -1,5 +1,6 @@
 "use client";
 
+import LeafyBackground from "@modules/layout/components/leafy-background";
 import { motion } from "motion/react";
 import Image from "next/image";
 
@@ -20,7 +21,7 @@ export default function AboutPage() {
             <h1 className="text-6xl lg:text-8xl font-extralight text-slate-700 leading-tight">
               About
             </h1>
-            <div className="text-7xl lg:text-9xl font-extralight tracking-wide text-pink-500 uppercase">
+            <div className="text-7xl lg:text-9xl font-extralight tracking-wide text-coralis-base font-seasons">
               Coralis
             </div>
             
@@ -34,6 +35,7 @@ export default function AboutPage() {
               the calm, wavy, and quiet luxury of the sea.
             </motion.p>
           </motion.div>
+          <LeafyBackground />
         </div>
       </section>
 
@@ -313,7 +315,7 @@ export default function AboutPage() {
             <h2 className="text-2xl lg:text-5xl font-extralight text-slate-700 leading-tight">
               Welcome to
             </h2>
-            <div className="text-6xl lg:text-8xl font-extralight text-rose-500 uppercase">
+            <div className="text-6xl lg:text-8xl font-extralight text-rose-500 font-seasons">
               Coralis
             </div>
             
