@@ -7,18 +7,4 @@ ARCHITECTURE AND CODE INSTRUCTIONS:
 4. All data should be strictly typed, if there isn't a type available, you must create one
    by referecing Shopify data strucutres
 
-INSTRUCTIONS FOR UI DESIGN:
-1. The theme of the website is premium but approchable
-2. All components should be friendly with subtle animations wherever possible
-3. Flat design is our design language
-4. We will use Shadcn components for all our UI design components and modify the styling as required to match our theme
-5. Draw inspiration from https://unseen.co/
-6. Also for further design inspirations on sections refer to the images in public/inspirations folder
-7. Do not create random SVG shapes that float around the screen. 
-8. Absolute positioning inside product, payment or shopping pages is not appreciated
-9. Only use motion/react for animation
 
-
-MCP NOTES: 
-1. Use context7 and shopify-dev-mcp to fetch the documentation on shopify when you are unsure which API to call or what is the data structure of a patricular call.
-2. Use shopify mcp to fetch data and verify the data present on my shopify store.

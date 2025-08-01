@@ -55,7 +55,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={`${playfair.variable} ${montserrat.variable} font-sans bg-background-0`}>
+      <body className={`${playfair.variable} ${montserrat.variable} font-sans bg-sky-50`}>
         {children}
         <Toaster position="top-center" />
       </body>

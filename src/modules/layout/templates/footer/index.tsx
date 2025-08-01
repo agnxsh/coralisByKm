@@ -122,14 +122,36 @@ export default async function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <LocalizedClientLink
                     href="/about"
-                    target="_blank"
-                    rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
                     About
-                  </a>
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/refund-policy"
+                    className="hover:text-ui-fg-base"
+                  >
+                    Refund Policy
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/privacy-policy"
+                    className="hover:text-ui-fg-base"
+                  >
+                    Privacy Policy
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
+                    href="/terms-and-conditions"
+                    className="hover:text-ui-fg-base"
+                  >
+                    Terms and Conditions
+                  </LocalizedClientLink>
                 </li>
                 <li>
                   <a
