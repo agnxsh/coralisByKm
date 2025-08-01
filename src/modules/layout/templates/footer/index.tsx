@@ -132,6 +132,14 @@ export default async function Footer() {
                 </li>
                 <li>
                   <LocalizedClientLink
+                    href="/shipping-policy"
+                    className="hover:text-ui-fg-base"
+                  >
+                    Shipping Policy
+                  </LocalizedClientLink>
+                </li>
+                <li>
+                  <LocalizedClientLink
                     href="/refund-policy"
                     className="hover:text-ui-fg-base"
                   >

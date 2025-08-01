@@ -6,7 +6,7 @@ export default function MinimalNavbar() {
 
   return (
     <nav className="fixed w-full z-50 flex justify-center items-center py-7">
-      <div className="flex gap-14">
+      <div className="flex gap-8 md:gap-14">
         {['Home', 'About', 'Store', 'Account'].map((item) => {
           const href = `/${item.toLowerCase()}`;
           const isActive = pathname === href;

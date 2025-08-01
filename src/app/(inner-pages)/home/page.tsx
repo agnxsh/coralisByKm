@@ -3,7 +3,6 @@
 
 import { Button } from "@modules/common/components/button";
 import { AudioPlayer } from "app/_components/AudioPlayer";
-import { LoadingOverlay } from "app/_components/LoadingOverlay";
 import { Particles } from "app/_components/Particles";
 import { WaterRippleEffect } from "app/_components/Scene";
 import { AnimatePresence, motion } from "motion/react";
@@ -12,19 +11,11 @@ import { useState } from "react";
 
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  const handleUserInteraction = (withAudio: boolean) => {
-    setIsAudioPlaying(withAudio);
-    
-    // Remove loading overlay
-    setIsLoading(false);
-  };
 
   return (
     <AnimatePresence mode="wait">
-      {isLoading && <LoadingOverlay key='loading-overlay' onUserInteraction={handleUserInteraction} />}
       {(
         <motion.div
           className="flex flex-col min-h-screen relative overflow-hidden"

@@ -8,8 +8,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-rose-50/30 to-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-rose-50/20 to-pink-50/30"></div>
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-teal-50 to-white">
         
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
           <motion.div
