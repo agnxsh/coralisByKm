@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 const Hero = () => {
   const router = useRouter()
   return (
-    <div className="relative h-[60vh] w-full bg-gradient-to-br from-stone-50 to-neutral-100 overflow-hidden">
+    <div className="relative h-[20vh] lg:h-[60vh] w-full bg-gradient-to-br from-stone-50 to-neutral-100 overflow-hidden">
       {/* Background decorative elements */}
       <motion.div
         initial={{ opacity: 0 }}

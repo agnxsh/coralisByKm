@@ -85,9 +85,9 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           {/* Image counter */}
           {images.length > 1 && (
             <motion.div
-              className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              className="absolute bottom-4 left-1/2 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
             >
               {currentIndex + 1} / {images.length}

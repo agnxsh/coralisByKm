@@ -7,12 +7,13 @@ import { Particles } from "app/_components/Particles";
 import { WaterRippleEffect } from "app/_components/Scene";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 
 export default function Home() {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-
+  const router = useRouter();
 
   return (
     <AnimatePresence mode="wait">
@@ -92,12 +93,12 @@ export default function Home() {
           <div className="absolute inset-x-0 bottom-8 flex justify-center z-90">
             {/* <Image src="/seagull.png" alt="Coralis" width={100} height={100} className="z-[9999] opacity-50" /> */}
             <Button
-              className="text-lg tracking-wide group rounded-full bg-black py-5 px-4 hover:bg-white hover:text-black transition-all duration-300"
+              className="text-lg tracking-wide group rounded-full bg-black py-3 px-6 hover:bg-white hover:text-black transition-all duration-300 font-sans z-[9999]"
               onClick={() => {
-                // router.push("/shop");
+                router.push("/store");
               }}
             >
-              COMING{" "}SOON
+              SHOP NOW
               {/* <ArrowUpRight className="h-16 w-16 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 shrink-0" /> */}
             </Button>
           </div>

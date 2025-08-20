@@ -5,13 +5,15 @@ import FastDelivery from "@modules/common/icons/fast-delivery"
 import Refresh from "@modules/common/icons/refresh"
 
 import { HttpTypes } from "@medusajs/types"
+import clsx from "clsx"
 import Accordion from "./accordion"
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
+  className?: string
 }
 
-const ProductTabs = ({ product }: ProductTabsProps) => {
+const ProductTabs = ({ product, className }: ProductTabsProps) => {
   const tabs = [
     {
       label: "Product Information",
@@ -24,7 +26,7 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
   ]
 
   return (
-    <div className="w-full">
+    <div className={clsx(`w-full`, className)}>
       <Accordion type="multiple">
         {tabs.map((tab, i) => (
           <Accordion.Item

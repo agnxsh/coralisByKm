@@ -219,7 +219,7 @@ export default function AboutPage() {
             >
               <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://coralis-images.blr1.digitaloceanspaces.com/IMG_8853-01K1919Y617WGV48NJ3PAK3FA4.jpeg"
+                  src="/kanyaka.jpeg"
                   alt="Kanyaka Mukherjee"
                   fill
                   className="object-cover"
